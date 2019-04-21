@@ -1,11 +1,11 @@
-const { expect } = require("chai");
+const { expect } = require('chai');
 const sinon = require('sinon');
 const getApiRequest = require('../src/lib/getApiRequest');
 const { example } = require('../src/handler');
 
 const successResponse = {
   statusCode: 200,
-  body: {message:"success"}
+  body: {message:'success'}
 };
 
 const unsuccessfulResponse = {
@@ -25,10 +25,10 @@ describe('Testing handler()', function(){
     example(null, null, (err, response) => {
       expect(response).to.deep.equal(
         {
-          "statusCode": 200,
-          "headers": {},
-          "body": JSON.stringify(successResponse.body),
-          "isBase64Encoded": false
+          'statusCode': 200,
+          'headers': {},
+          'body': JSON.stringify(successResponse.body),
+          'isBase64Encoded': false
         }
       );
       done();
@@ -42,10 +42,10 @@ describe('Testing handler()', function(){
     example(null, null, (err, response) => {
       expect(response).to.deep.equal(
         {
-          "statusCode": 400,
-          "headers": {},
-          "body": JSON.stringify(unsuccessfulResponse.body),
-          "isBase64Encoded": false
+          'statusCode': 400,
+          'headers': {},
+          'body': JSON.stringify(unsuccessfulResponse.body),
+          'isBase64Encoded': false
         }
       );
       done();
@@ -55,14 +55,14 @@ describe('Testing handler()', function(){
 
   it('Should return the correct response when getApiRequest() errors', function(done: any){
 
-    sinon.stub(getApiRequest, 'getApiRequest').resolves("error");
+    sinon.stub(getApiRequest, 'getApiRequest').resolves('error');
     example(null, null, (err, response) => {
       expect(response).to.deep.equal(
         {
-          "statusCode": 404,
-          "headers": {},
-          "body": "error",
-          "isBase64Encoded": false
+          'statusCode': 404,
+          'headers': {},
+          'body': 'error',
+          'isBase64Encoded': false
         }
       );
       done();
@@ -76,10 +76,10 @@ describe('Testing handler()', function(){
     example(null, null, (err, response) => {
       expect(response).to.deep.equal(
         {
-          "statusCode": 404,
-          "headers": {},
-          "body": null,
-          "isBase64Encoded": false
+          'statusCode': 404,
+          'headers': {},
+          'body': null,
+          'isBase64Encoded': false
         }
       );
       done();

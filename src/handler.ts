@@ -24,10 +24,10 @@ module.exports.example = async(event: IEventPayload, context: any, callback: ICa
   }
 
   const output = {
-    "statusCode": statusCode,
-    "headers": {},
-    "body": responseBody,
-    "isBase64Encoded": false
+    'statusCode': statusCode,
+    'headers': {},
+    'body': responseBody,
+    'isBase64Encoded': false
     };
 
   callback(null, output);
