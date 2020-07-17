@@ -1,5 +1,5 @@
-# Account specific config
-custom_config/
+# Reference folder
+reference/
 
 # Serverless directories
 .serverless

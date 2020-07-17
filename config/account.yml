@@ -1,0 +1,3 @@
+REGION: ap-southeast-2
+ACCOUNT_ID: 403468720024
+DEPLOYMENT_BUCKET: poc-lambda-deployment-bucket
