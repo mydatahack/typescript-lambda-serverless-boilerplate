@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import sinon from 'sinon';
+const { expect } = require('chai');
+const sinon = require('sinon');
 const getApiRequest = require('../src/lib/getApiRequest');
 const { example } = require('../src/handler');
 

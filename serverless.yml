@@ -1,4 +1,5 @@
-service: ts-lambda-boilerplate
+
+service: typescript-ld-get-flags
 
 plugins:
   - serverless-webpack # Enable typescript transpilation through webpack and deployment with serverless
@@ -13,19 +14,19 @@ custom:
   account: ${opt:account, self:provider.account}
   # customDomain: ${file(config/domains.yml)} # this is for custom dns for API endpoint
   # certs: ${file(config/certs.yml)} # if creating custom dns, need to specify certificate
-  functionName: ${self:custom.env}-ts-lambda-boilerplate # This is the function name appears in the AWS lambda console.
+  functionName: ${self:custom.env}-typescript-ld-get-flags # This is the function name appears in the AWS lambda console.
 
 provider:
   name: aws
-  runtime: nodejs12.x
-  region: ${file(config/account.yml):REGION} # from custom config
+  runtime: nodejs8.10
+  region: ${file(custom_config/account.yml):REGION} # from custom config
   stage: test
-  account: ${file(config/account.yml):ACCOUNT_ID} # from custom config
+  account: ${file(custom_config/account.yml):ACCOUNT_ID} # from custom config
   memorySize: 1024
   timeout: 30
   iamRoleStatements: ${file(config/permissions.yml)}
   deploymentBucket:
-    name: ${file(config/account.yml):DEPLOYMENT_BUCKET} # from custom config
+    name: ${file(custom_config/account.yml):DEPLOYMENT_BUCKET} # from custom config
     serverSideEncryption: AES256
   environment: ${file(config/env.yml)}
   # vpc: ${file(config/vpc/${self:custom.env}.yml)} # specifies which vpc to run, without it, defaults to default vpc.
@@ -39,7 +40,7 @@ functions:
     name: ${self:custom.functionName}
     events:
       - http:
-          path: get-users
+          path: get-flag-list
           method: get
       # - http:
       #     path: example-api # the path comes after API endpoint

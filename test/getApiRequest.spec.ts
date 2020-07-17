@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { getApiRequest } from '../src/lib/getApiRequest';
-import nock from 'nock';
+import * as nock from 'nock';
 
 const mockUri = 'https://helloworld.com';
 
