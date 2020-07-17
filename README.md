@@ -1,4 +1,4 @@
-# typescript-lambda-launch-darkly-get-flags
+# typescript-lambda-boilerplate
 
 AWS Lambda function boilerplate with TypeScript. It will give you a head start on building AWS lambda with TypeScript. Please make sure to add the custom_config with your AWS account information as in step 2 of the Setup section.
 
@@ -11,16 +11,6 @@ serverless-webpack plugin enables transiplation through webpack before deploymen
 (1) Install all modules
 ```bash
 npm i
-```
-
-(2) Create custom_config folder in the root and add account.yml.
-
-The yaml file contains your aws environment information including Account Id, region and deployment bucket.
-
-```yaml
-ACCOUNT_ID: "your account id"
-REGION: "your aws region"
-DEPLOYMENT_BUCKET: "s3 deployment bucket name"
 ```
 
 ### Running Test
@@ -36,8 +26,12 @@ npm run integration
 
 ### Deployment
 
+Use npm command and we can pass arguments as below. Alternatively, we can use sls deploy command.
+
 ```bash
-sls deploy --stage dev1
+npm run deploy -- -stage nonprod
+
+sls deploy -stage nonprod
 ```
 
 ### Checking endpoint
