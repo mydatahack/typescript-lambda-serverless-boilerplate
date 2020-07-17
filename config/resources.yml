@@ -73,7 +73,6 @@ BoilerplateApi4xxErrors:
     Threshold: 1.0
 
 # 5XX Error for API Gateway
-
 BoilerplateApi5xxErrors:
   Type: AWS::CloudWatch::Alarm
   Properties:
